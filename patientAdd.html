@@ -1,0 +1,423 @@
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>patient</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!----css3---->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="styles/custom.css">
+    
+
+    <!--google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <!--google material icon-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!--toadter define-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css">
+
+</head>
+
+<body onload="loadPatients()">
+
+
+
+    <div class="wrapper">
+
+        <div class="body-overlay"></div>
+
+        <!-------sidebar--design------------>
+
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="resourses/logo.png" class="img-fluid" /><span>Ruhunu Hospital</span></h3>
+            </div>
+            <ul class="list-unstyled component m-0">
+                <li class="">
+                    <a href="dashboard.html" class="dashboard"><i class="material-icons">dashboard</i>dashboard </a>
+                </li>
+                <li class="active">
+                    <a href="patientAdd.html" class="dashboard"><i class="material-icons">dashboard</i>patients-section </a>
+                </li>
+                <li class="">
+                    <a href="consultants.html" class="dashboard"><i class="material-icons">dashboard</i>Consultants-section </a>
+                </li>
+                <li class="">
+                    <a href="appointment.html" class="dashboard"><i class="material-icons">border_color</i>Appoinments </a>
+                </li>
+
+                <li class="">
+                    <a href="#" class=""><i class="material-icons">date_range</i>copy </a>
+                </li>
+                <li class="">
+                    <a href="#" class=""><i class="material-icons">library_books</i>calender </a>
+                </li>
+
+            </ul>
+            <div class="align-items-end px-md-4">
+                <button id="logoutButton" class="btn btn-danger"><span class="material-icons">logout</span> Log Out</button>
+            </div>
+        </div>
+
+        <!-------sidebar--design- close----------->
+
+
+
+        <!-------page-content start----------->
+
+        <div id="content">
+
+            <!------top-navbar-start----------->
+
+            <div class="top-navbar">
+                <div class="xd-topbar">
+                    <div class="row">
+                        <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                            <div class="xp-menubar">
+                                <span class="material-icons text-white">signal_cellular_alt</span>
+                            </div>
+                        </div>
+
+                       
+
+
+                        <!-- <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
+                            <div class="xp-profilebar text-right">
+                                <nav class="navbar p-0">
+                                    <ul class="nav navbar-nav flex-row ml-auto">
+                                        <li class="dropdown nav-item active">
+                                            <a class="nav-link" href="#" data-toggle="dropdown">
+                                                <span class="material-icons">notifications</span>
+                                                <span class="notification">4</span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">You Have 4 New Messages</a></li>
+                                                <li><a href="#">You Have 4 New Messages</a></li>
+                                                <li><a href="#">You Have 4 New Messages</a></li>
+                                                <li><a href="#">You Have 4 New Messages</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">
+                                                <span class="material-icons">question_answer</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown nav-item">
+                                            <a class="nav-link" href="#" data-toggle="dropdown">
+                                                <img src="img/user.jpg" style="width:40px; border-radius:50%;" />
+                                                <span class="xp-user-live"></span>
+                                            </a>
+                                            <ul class="dropdown-menu small-menu">
+                                                <li><a href="#">
+                                                        <span class="material-icons">person_outline</span>
+                                                        Profile
+                                                    </a></li>
+                                                <li><a href="#">
+                                                        <span class="material-icons">settings</span>
+                                                        Settings
+                                                    </a></li>
+                                                <li><a href="#">
+                                                        <span class="material-icons">logout</span>
+                                                        Logout
+                                                    </a></li>
+
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div> -->
+
+                    </div>
+
+                    <div class="xp-breadcrumbbar text-center">
+                        <h4 class="page-title">Patient Management</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Ruhunu Hospital</a></li>
+                            <li class="breadcrumb-item active" aria-curent="page">Patient Management</li>
+                        </ol>
+                    </div>
+
+
+                </div>
+            </div>
+            <!------top-navbar-end----------->
+
+
+            <!------main-content-start----------->
+
+            <div class="main-content">
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm" onclick="addNewPatient()">New
+                            Patient <i class="bi bi-people"></i></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                                    <h2 class="ml-lg-2">Manage Patients</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column w-75 me-1">
+                            <label for="">Search patient by NIC</label>
+                            <input type="text" class="rounded-pill form-control py-2" id="searchNic" name="searchNic">
+                        </div>
+                        <button class="btn btn-primary mt-2" onclick="searchPatientByNIC()">Search</button>
+                        <table class="table table-striped table-hover mt-3 text-center table-bordered " >
+
+                            <thead>
+                                <tr>
+                                    <th>#Id</th>
+                                    <th>Name</th>
+                                    <th>Mail</th>
+                                    <th>Nic NO:</th>
+                                    <th>Contact NO:</th>
+                                    <th>Gender:</th>
+                                    <th>Medical History</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="table-body" ></tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <!--Modal Form-->
+            <div class="modal fade overflow-auto" id="userForm">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Fill the Form</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.reload()"></button>
+                        </div>
+
+                        <div class="modal-body ">
+
+                            <div action="#" id="myForm">
+
+                                
+
+                                <div class="inputField container-fluid">
+                                    <div>
+                                        <label for="pName">Full name </label>
+                                        <input type="text" class=" form-control py-2" id="pName" name="pName">
+                                    </div>
+                                    <!-- <div>
+                                        <label for="age">Age:</label>
+                                        <input type="number" name="" id="pAge" required>
+                                    </div> -->
+                                    
+                                    <div>
+                                        <label for="email">E-mail:</label>
+                                        <input type="email" name="" id="pMail" required>
+                                    </div>
+                                    <div>
+                                        <label for="">Nic No:</label>
+                                        <input type="text" name="" id="pNic"  required>
+                                    </div>
+
+                                    <div>
+                                        <label for="">Contact No:</label>
+                                        <input type="text" name="" id="pContact"   required>
+                                    </div>
+                                    <div >
+                                        <label for="">Gender<span class="text-danger ms-1 fw-bold">*</span></label>
+                                        <select class="form-select text-center" id="pGender" name="pGender">
+                                            <option value="null" selected disabled>---Select Gender---</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Femail">Femail</option>
+                                        </select>
+                                    </div>
+                                    <div >
+                                        <label for="">Medical History(Allergies)</label>
+                                        <textarea cols="30" rows="2"  id="pExtraInfo" name="pExtraInfo"></textarea>
+                                    </div>
+                                    
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" form="myForm" class="btn btn-primary submit" onclick="createPatient()" id="newPatientSubmit" >Submit</button>
+                            <button type="submit" form="myForm" class="btn btn-primary submit" onclick="updateRecord()" id="patientDataUpdate">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Read Data Modal-->
+            <div class="modal fade" id="readData">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Profile</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form action="#" id="myForm">
+
+                                <div class="card imgholder">
+                                    <label for="imgInput" class="upload">
+                                        <input type="file" name="" id="imgInput">
+                                        <i class="bi bi-plus-circle-dotted"></i>
+                                    </label>
+                                    <img src="./resourses/Profile Icon.webp" alt="" width="200" height="200"
+                                        class="showImg">
+                                </div>
+
+                                <div class="inputField container-fluid">
+                                    <div>
+                                        <label for="pName">Full name </label>
+                                        <input type="text" class=" form-control py-2" id="pName" name="pName" disabled>
+                                    </div>
+                                    <!-- <div>
+                                        <label for="age">Age:</label>
+                                        <input type="number" name="" id="pAge" required>
+                                    </div> -->
+                                    
+                                    <div>
+                                        <label for="email">E-mail:</label>
+                                        <input type="email" name="" id="pMail" disabled>
+                                    </div>
+                                    <div>
+                                        <label for="phone">Nic No:</label>
+                                        <input type="text" name="" id="pNic" minlength="8" maxlength="12" disabled>
+                                    </div>
+
+                                    <div>
+                                        <label for="phone">Contact No:</label>
+                                        <input type="text" name="" id="pContact" minlength="11" maxlength="11" disabled>
+                                    </div>
+                                    <div >
+                                        <label for="">Gender<span class="text-danger ms-1 fw-bold">*</span></label>
+                                        <select class="form-select text-center" id="pGender" name="pGender" disabled>
+                                            <option value="null" selected disabled>---Select Gender---</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Femail">Femail</option>
+                                        </select>
+                                    </div>
+                                    <div >
+                                        <label for="">Medical History(Allergies)</label>
+                                        <textarea cols="30" rows="2"  id="pExtraInfo" name="pExtraInfo" disabled></textarea>
+                                    </div>
+                                    
+                                    
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------main-content-end----------->
+
+
+
+            <!----footer-design------------->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="footer-in">
+
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> | All Rights Recerved
+
+
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-------complete html----------->
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="scripts/firebaseConfig.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+        <script src="
+        https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js
+        "></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".xp-menubar").on('click', function () {
+                $("#sidebar").toggleClass('active');
+                $("#content").toggleClass('active');
+            });
+
+            $('.xp-menubar,.body-overlay').on('click', function () {
+                $("#sidebar,.body-overlay").toggleClass('show-nav');
+            });
+
+        });
+    </script>
+    <script src="scripts/patient.js"></script>
+    <!-- <script src="scripts/patientProfile.js"></script> -->
+
+
+
+
+
+</body>
+
+</html>

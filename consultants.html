@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>consultants</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!----css3---->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="styles/custom.css">
+
+
+    <!--google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <!--google material icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!--toadter define-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css">
+</head>
+
+<body onload="loadConsultants()">
+
+
+
+    <div class="wrapper">
+
+        <div class="body-overlay"></div>
+
+        <!-------sidebar--design------------>
+
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="resourses/logo.png" class="img-fluid" /><span>Ruhunu Hospital</span></h3>
+            </div>
+            <ul class="list-unstyled component m-0">
+                <li class="">
+                    <a href="dashboard.html" class="dashboard"><i class="material-icons">dashboard</i>dashboard </a>
+                </li>
+                <li class="">
+                    <a href="patientAdd.html" class="dashboard"><i class="material-icons">dashboard</i>patients-section </a>
+                </li>
+                <li class="active">
+                    <a href="consultants.html" class="dashboard"><i class="material-icons">dashboard</i>Consultants-section </a>
+                </li>
+                <li class="">
+                    <a href="appointment.html" class="dashboard"><i class="material-icons">border_color</i>Appoinments </a>
+                </li>
+
+
+
+                
+
+
+                <li class="">
+                    <a href="#" class=""><i class="material-icons">date_range</i>copy </a>
+                </li>
+                <li class="">
+                    <a href="#" class=""><i class="material-icons">library_books</i>calender </a>
+                </li>
+
+            </ul>
+            <div class="align-items-end px-md-4">
+                <button id="logoutButton" class="btn btn-danger"><span class="material-icons">logout</span> Log Out</button>
+            </div>
+        </div>
+
+        <!-------sidebar--design- close----------->
+
+
+
+        <!-------page-content start----------->
+
+        <div id="content">
+
+            <!------top-navbar-start----------->
+
+            <div class="top-navbar">
+                <div class="xd-topbar">
+                    <div class="row">
+                        <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                            <div class="xp-menubar">
+                                <span class="material-icons text-white">signal_cellular_alt</span>
+                            </div>
+                        </div>
+
+                        
+
+
+                        
+
+                    </div>
+
+                    <div class="xp-breadcrumbbar text-center">
+                        <h4 class="page-title">Consultants Management</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Ruhunu Hospital</a></li>
+                            <li class="breadcrumb-item active" aria-curent="page">consultant Management</li>
+                        </ol>
+                    </div>
+
+
+                </div>
+            </div>
+            <!------top-navbar-end----------->
+
+
+            <!------main-content-start----------->
+
+            <div class="main-content">
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm" onclick="addNewConsultant()">New
+                            Consultant <i class="bi bi-people"></i></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                                    <h2 class="ml-lg-2">Manage Patients</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover mt-3 text-center table-bordered ">
+
+                            <thead>
+                                <tr>
+                                    <th>#Id</th>
+                                    <th>Name</th>
+                                    <th>Specialization</th>
+                                    <th>Contact NO:</th>
+                                    <th>consultant"s Charge:</th>
+
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="table-body"></tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <!--Modal Form-->
+            <div class="modal fade overflow-auto" id="userForm">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Fill the Form</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.reload()"></button>
+                        </div>
+
+                        <div class="modal-body ">
+
+                            <div action="#" id="myForm">
+
+                                
+
+                                <div class="inputField ">
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" id="name" class="form-control" placeholder="eg: Dr Smith" value="Dr "
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="specialization">Specialization</label>
+                                        <input type="text" class="form-control" id="specialization" placeholder="eg: Cadialogy"
+                                            name="specialization" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="salary">Contact NO:</label>
+                                        <input type="tel" id="contact" class="form-control" placeholder="eg:077xxxxxxx"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="consultantCharge">consultant's Charge: Rs.</label>
+                                        <input type="text" class="form-control" id="consultantCharge" placeholder="eg: 1000"
+                                            name="consultantCharge" required>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="location.reload()">Close</button>
+                            <button type="submit" form="myForm" class="btn btn-primary submit"onclick="createConsultant()" id="newConsultantSubmit">Submit</button>
+                            <button type="submit" form="myForm" class="btn btn-primary submit" onclick="updateRecord()" id="consultantDataUpdate">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <!------main-content-end----------->
+
+
+
+            <!----footer-design------------->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="footer-in">
+
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> | All Rights Recerved
+
+
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-------complete html----------->
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="scripts/firebaseConfig.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".xp-menubar").on('click', function () {
+                $("#sidebar").toggleClass('active');
+                $("#content").toggleClass('active');
+            });
+
+            $('.xp-menubar,.body-overlay').on('click', function () {
+                $("#sidebar,.body-overlay").toggleClass('show-nav');
+            });
+
+        });
+    </script>
+    <script src="scripts/consultantsAdd.js"></script>
+
+
+
+
+
+</body>
+
+</html>

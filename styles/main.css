@@ -1,0 +1,20 @@
+
+/* Example style for sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+/* Example style for main content area */
+main {
+    margin-top: 20px;
+}
+
+
+
+
